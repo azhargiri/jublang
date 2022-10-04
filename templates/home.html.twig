@@ -1,0 +1,32 @@
+{% extends '@Tabler/layout-vertical.html.twig' %}
+
+{% block page_content %}
+{% from '@Tabler/components/alert.html.twig' import alert %}
+{% from '@Tabler/components/steps.html.twig' import steps %}
+{% from '@Tabler/components/buttons.html.twig' import dropdown_button %}
+{{ alert('danger', 'Duh, error') }}
+{{ alert('success', 'Ok, deh') }}
+
+
+{{ dropdown_button(
+    {icon: '', title : 'Pilih Bungkusan'},
+    [
+        {icon: 'calender',      title : 'Pincuk Godhong Gedhang',     url : '/add'},
+        {icon: 'clock',                   title : 'Kotak',  url : '/help'},
+        {icon: 'delete',    title : 'Kertas Minyak',       url : '/delete', class : 'my-class' }
+    ]
+) }}
+
+{{ steps([
+    {title : 'Step 1', clickable : false},
+    {title : 'Step 2'},
+    {title : 'Step 3', active : true},
+    {title : 'Step 4', description : 'More detailed description'},
+    {title : 'Step 5', href: 'https://www.google.com', clickable : true},
+],{
+    tooltip : true,
+    color: 'red',
+    counter : true,
+}) }}
+
+{% endblock %}
